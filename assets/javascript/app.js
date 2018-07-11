@@ -1,10 +1,11 @@
 
 var superHeros = ["Deadpool", "Superman", "Spiderman", "Dr. Strange"];
 // click function isnt working
-$("#button").on("click", function() {
 
+// TODO make a loading screen that shows up first before the acutal gifs load
+$(document).on("click", ".button", function () {
+    $("#gifZone").empty();
     var superHero = $(this).attr("data-hero");
-    console.log(this , "what is this on click");
 
     var apiKey = "ii1cKp76UP9kphOInoWXkQHcjt0F5BGg";
 
@@ -13,44 +14,44 @@ $("#button").on("click", function() {
     $.ajax({
         url: queryURL,
         method: "GET"
-      })
-      .then(function(response) {
-          //grab response stuff here
-          // what responses looking for (still image, rating, )
-        var results = response.data;
-      
-      // functions here
- // for loop for making it happen 10 times
- for (var i = 0; i < results.length; i++) { // referred to response as results here, need to make a variable if going to do this
-    var superHeroDiv = $("<div class='fl w-20'>");
+    })
+        .then(function (response) {
+            //grab response stuff here
+            // what responses looking for (still image, rating, )
+            var results = response.data;
 
-    var p = $("<p>").text("Rating: " + results[i].rating); // once again, need to have results variable above to make this work
+            for (var i = 0; i < results.length; i++) {
+                if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+                    var superHeroDiv = $("<div class='fl w-20'>");
 
-    var superHeroImage = $("<img>");
+                    var p = $("<p>").text("Rating: " + results[i].rating); // once again, need to have results variable above to make this work
 
-    superHeroImage.attr("src", results[i].images.original_still.url);//need results still image reference here
+                    var superHeroImage = $("<img>");
 
-    superHeroDiv.append(superHeroImage, p);
+                    superHeroImage.attr("src", results[i].images.original_still.url);
 
-    $("#gifZone").html(superHeroDiv);
+                    superHeroDiv.append(superHeroImage, p);
 
-  }
+                    $("#gifZone").append(superHeroDiv);
 
-    //   need function for playing and pausing 
-    // need to use original still image and then the gif image source
+                }
+            }
 
-      //for loop to create elements for each response
-    //   need to have content overwrite previous stuff
+            //   need function for playing and pausing 
+            // need to use original still image and then the gif image source
 
-});
+            //for loop to create elements for each response
+            //   need to have content overwrite previous stuff
+
+        });
 });
 
 function createButtons() {
-    
+
     $("#buttonZone").empty();
 
     for (var i = 0; i < superHeros.length; i++) {
-        var button = $("<a class='f6 grow no-underline br-pill ph3 pv2 mb2 dib white bg-purple' href='#0' id='button'></a>");
+        var button = $("<a class='f6 grow no-underline br-pill ph3 pv2 mb2 dib white bg-purple button' href='#0'></a>");
         button.attr("data-hero", superHeros[i]);
         button.text(superHeros[i]);
         $("#buttonZone").append(button);
@@ -58,11 +59,11 @@ function createButtons() {
     }
 }
 
-$("#superHeroName").on("click", function(event){
+$("#superHeroName").on("click", function (event) {
     event.preventDefault();
     var supers = $("#superHeroInput").val().trim();
     superHeros.push(supers);
-// find a way to get the text to disappear in input
+    // find a way to get the text to disappear in input
 
     createButtons();
 });

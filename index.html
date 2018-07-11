@@ -2,42 +2,50 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="assets/css/reset.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
-        <link rel="stylesheet" href="assets/css/style.css">
-    </head>
-    <body>
+<!--[if gt IE 8]><!-->
+<html>
+<!--<![endif]-->
 
-<div class="fl w-100" id="buttonZone"></div>   
-<div class="fl w-100"> 
-    <div class="fl w-70" id="gifZone">&nbsp;</div>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
 
-    <div class="fl w-30">
-            <div class="pa4-l">
-                    <form class="bg-light-red mw7 center pa4 br2-ns ba b--black-10">
+<body>
+
+    <div class="fl w-100" id="buttonZone"></div>
+    <div class="fl w-100">
+        <div class="fl w-70" id="gifZone">&nbsp;</div>
+
+        <div class="fl w-30">
+            <div class="pa4-l"> <!--want to change this padding-->
+                <form class="bg-light-red mw7 center pa4 br2-ns ba b--black-10">
                     <fieldset class="cf bn ma0 pa0">
                         <legend class="pa0 f5 f4-ns mb3 black-80">Pick a superhero!</legend>
                         <div class="cf">
-                        <label class="clip" for="superhero">Super Hero</label>
-                        <input class="f6 f5-l input-reset bn fl black-80 bg-white pa3 lh-solid w-100 w-75-m w-80-l br2-ns br--left-ns" placeholder="Super Hero Name" type="text" name="superhero" value="" id="superHeroInput">
-                        <input class="f6 f5-l button-reset fl pv3 tc bn bg-animate bg-black-70 hover-bg-black white pointer w-100 w-25-m w-20-l br2-ns br--right-ns" type="submit" id="superHeroName" value="Gif it up">
+                            <label class="clip" for="superhero">Super Hero</label>
+                            <input class="f6 f5-l input-reset bn fl black-80 bg-white pa3 lh-solid w-100 w-75-m w-80-l br2-ns br--left-ns" placeholder="Super Hero Name"
+                                type="text" name="superhero" value="" id="superHeroInput">
+                            <input class="f6 f5-l button-reset fl pv3 tc bn bg-animate bg-black-70 hover-bg-black white pointer w-100 w-25-m w-20-l br2-ns br--right-ns"
+                                type="submit" id="superHeroName" value="Gif it up">
                         </div>
                     </fieldset>
-                    </form>
-                </div>
+                </form>
+            </div>
+        </div>
     </div>
-</div>
+<!-- might not need first JS code -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+</body>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script type="text/javascript" src="assets/javascript/app.js"></script>
-    </body>
 </html>
