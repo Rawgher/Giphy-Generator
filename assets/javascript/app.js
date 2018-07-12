@@ -26,43 +26,25 @@ $(document).on("click", ".button", function () {
 
                     var p = $("<p>").text("Rating: " + results[i].rating); 
 
-                    var superHeroImage = $("<img>");
+                    var superHeroImage = $("<img class='gif'>");
 
                     // superHeroImage.attr("src", results[i].images.original_still.url);
                     superHeroImage.attr("src", results[i].images.fixed_width_still.url);
+
+                    superHeroImage.attr("data-state", "still");
 
                     superHeroImage.attr("data-animate", results[i].images.fixed_width.url);
 
                     superHeroImage.attr("data-still", results[i].images.fixed_width_still.url);
 
-                    $("img").addClass("gif");
                     superHeroDiv.append(superHeroImage, p);
 
                     $("#gifZone").append(superHeroDiv); 
-                    
-                    
-                    $(".gif").on("click", function() {
-                        // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
-                        var state = $(this).attr("data-state");
-                        // If the clicked image's state is still, update its src attribute to what its data-animate value is.
-                        // Then, set the image's data-state to animate
-                        // Else set src to the data-still value
-                        if (state === "still") {
-                          $(this).attr("src", $(this).attr("data-animate"));
-                          console.log("what is this - still", this);
-                          $(this).attr("data-state", "animate");
-                          console.log("is this happening? - changing to animate");
-                        } else {
-                          $(this).attr("src", $(this).attr("data-still"));
-                          console.log("what is this - still", this)
-                          $(this).attr("data-state", "still");
-                          console.log("is this happening? changing to still");
-                        }
-                      });
-
+ 
                 }
+
             }
-           
+                animateGif();
             //   need function for playing and pausing 
             // need to use original still image and then the gif image source
 
@@ -70,11 +52,25 @@ $(document).on("click", ".button", function () {
             //   need to have content overwrite previous stuff
 
         });
+
 });
 
-
-
-
+function animateGif() {
+$(".gif").on("click", function() {
+    // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
+    var state = $(this).attr("data-state");
+    // If the clicked image's state is still, update its src attribute to what its data-animate value is.
+    // Then, set the image's data-state to animate
+    // Else set src to the data-still value
+    if (state === "still") {
+      $(this).attr("src", $(this).attr("data-animate"));
+      $(this).attr("data-state", "animate");
+    } else {
+      $(this).attr("src", $(this).attr("data-still"));
+      $(this).attr("data-state", "still");
+    }
+  });
+}
 
 function createButtons() {
 
