@@ -72,6 +72,7 @@ $(".gif").on("click", function() {
   });
 }
 
+
 function createButtons() {
 
     $("#buttonZone").empty();
