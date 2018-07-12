@@ -21,22 +21,48 @@ $(document).on("click", ".button", function () {
             var results = response.data;
 
             for (var i = 0; i < results.length; i++) {
-                if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+                if (results[i].rating !== "r") {
                     var superHeroDiv = $("<div class='fl w-20'>");
 
-                    var p = $("<p>").text("Rating: " + results[i].rating); // once again, need to have results variable above to make this work
+                    var p = $("<p>").text("Rating: " + results[i].rating); 
 
                     var superHeroImage = $("<img>");
 
-                    superHeroImage.attr("src", results[i].images.original_still.url);
+                    // superHeroImage.attr("src", results[i].images.original_still.url);
+                    superHeroImage.attr("src", results[i].images.fixed_width_still.url);
 
+                    superHeroImage.attr("data-animate", results[i].images.fixed_width.url);
+
+                    superHeroImage.attr("data-still", results[i].images.fixed_width_still.url);
+
+                    $("img").addClass("gif");
                     superHeroDiv.append(superHeroImage, p);
 
-                    $("#gifZone").append(superHeroDiv);
+                    $("#gifZone").append(superHeroDiv); 
+                    
+                    
+                    $(".gif").on("click", function() {
+                        // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
+                        var state = $(this).attr("data-state");
+                        // If the clicked image's state is still, update its src attribute to what its data-animate value is.
+                        // Then, set the image's data-state to animate
+                        // Else set src to the data-still value
+                        if (state === "still") {
+                          $(this).attr("src", $(this).attr("data-animate"));
+                          console.log("what is this - still", this);
+                          $(this).attr("data-state", "animate");
+                          console.log("is this happening? - changing to animate");
+                        } else {
+                          $(this).attr("src", $(this).attr("data-still"));
+                          console.log("what is this - still", this)
+                          $(this).attr("data-state", "still");
+                          console.log("is this happening? changing to still");
+                        }
+                      });
 
                 }
             }
-
+           
             //   need function for playing and pausing 
             // need to use original still image and then the gif image source
 
@@ -45,6 +71,10 @@ $(document).on("click", ".button", function () {
 
         });
 });
+
+
+
+
 
 function createButtons() {
 
