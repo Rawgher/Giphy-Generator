@@ -22,11 +22,11 @@ $(document).on("click", ".button", function () {
 
             for (var i = 0; i < results.length; i++) {
                 if (results[i].rating !== "r") {
-                    var superHeroDiv = $("<div class='fl w-20'>");
+                    var superHeroDiv = $("<div class='fl w-20 padding'>");
 
                     var p = $("<p>").text("Rating: " + results[i].rating); 
 
-                    var superHeroImage = $("<img class='gif'>");
+                    var superHeroImage = $("<img class='gif settings'>");
 
                     // superHeroImage.attr("src", results[i].images.original_still.url);
                     superHeroImage.attr("src", results[i].images.fixed_width_still.url);
@@ -76,7 +76,7 @@ $(".gif").on("click", function() {
 function createButtons() {
 
     $("#buttonZone").empty();
-
+// need to add padding to buttons to make them space properly, might needs divs for it
     for (var i = 0; i < superHeros.length; i++) {
         var button = $("<a class='f6 grow no-underline br-pill ph3 pv2 mb2 dib white bg-purple button' href='#0'></a>");
         button.attr("data-hero", superHeros[i]);
