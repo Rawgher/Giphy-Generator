@@ -1,6 +1,5 @@
 
 var superHeros = ["Deadpool", "Superman", "Spiderman", "Dr. Strange"];
-// click function isnt working
 
 // TODO make a loading screen that shows up first before the acutal gifs load
 $(document).on("click", ".button", function () {
@@ -15,11 +14,12 @@ $(document).on("click", ".button", function () {
         url: queryURL,
         method: "GET"
     })
+    // this calls the response from ajax
         .then(function (response) {
-            //grab response stuff here
-            // what responses looking for (still image, rating, )
             var results = response.data;
 
+
+            // for loop for creating each button
             for (var i = 0; i < results.length; i++) {
                 if (results[i].rating !== "r") {
                     var superHeroDiv = $("<div class='fl w-20 padding'>");
@@ -30,12 +30,17 @@ $(document).on("click", ".button", function () {
 
                     // superHeroImage.attr("src", results[i].images.original_still.url);
                     superHeroImage.attr("src", results[i].images.fixed_width_still.url);
+                    //superHeroImage.attr("src", results[i].images.fixed_height_still.url);
 
                     superHeroImage.attr("data-state", "still");
 
+                    //superHeroImage.attr("data-animate", results[i].images.original.url);
                     superHeroImage.attr("data-animate", results[i].images.fixed_width.url);
+                    //superHeroImage.attr("data-animate", results[i].images.fixed_height.url);
 
+                    //superHeroImage.attr("data-still", results[i].images.fixed_height_still.url);
                     superHeroImage.attr("data-still", results[i].images.fixed_width_still.url);
+                    //superHeroImage.attr("data-still", results[i].images.original_still.url);
 
                     superHeroDiv.append(superHeroImage, p);
 
@@ -45,23 +50,18 @@ $(document).on("click", ".button", function () {
 
             }
                 animateGif();
-            //   need function for playing and pausing 
-            // need to use original still image and then the gif image source
-
-            //for loop to create elements for each response
-            //   need to have content overwrite previous stuff
 
         });
 
 });
 
+
+// this is my function for switching the codes state
 function animateGif() {
 $(".gif").on("click", function() {
-    // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
+
     var state = $(this).attr("data-state");
-    // If the clicked image's state is still, update its src attribute to what its data-animate value is.
-    // Then, set the image's data-state to animate
-    // Else set src to the data-still value
+
     if (state === "still") {
       $(this).attr("src", $(this).attr("data-animate"));
       $(this).attr("data-state", "animate");
@@ -72,7 +72,7 @@ $(".gif").on("click", function() {
   });
 }
 
-
+// this function creates the buttons to be clicked
 function createButtons() {
 
     $("#buttonZone").empty();
