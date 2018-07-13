@@ -1,6 +1,7 @@
-/* .settings {
-    height: 200px;
-} */
+.imgSize {
+    height: 175px;
+    width: 339px;
+} 
 
 .container {
     display: flex;
@@ -8,6 +9,11 @@
     flex-wrap: wrap;
     justify-content: space-around;
     height: 120px;
+}
+
+
+.centered {
+    text-align: center;
 }
 
 .padding {

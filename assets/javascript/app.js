@@ -1,5 +1,5 @@
 
-var superHeros = ["Deadpool", "Superman", "Spiderman", "Dr. Strange"];
+var superHeros = ["Deadpool", "Superman", "Spiderman", "Dr. Strange", "Batman"];
 
 // TODO make a loading screen that shows up first before the acutal gifs load
 $(document).on("click", ".button", function () {
@@ -22,23 +22,23 @@ $(document).on("click", ".button", function () {
             // for loop for creating each button
             for (var i = 0; i < results.length; i++) {
                 if (results[i].rating !== "r") {
-                    var superHeroDiv = $("<div class='fl w-third'>");
+                    var superHeroDiv = $("<div class='fl w-25'>");
 
-                    var p = $("<p>").text("Rating: " + results[i].rating); 
+                    var p = $("<p class='centered'>").text("Rating: " + results[i].rating); 
 
-                    var superHeroImage = $("<img class='gif padding'>");
+                    var superHeroImage = $("<img class='gif padding imgSize'>");
 
                     superHeroImage.attr("src", results[i].images.original_still.url);
-                    // superHeroImage.attr("src", results[i].images.fixed_width_still.url);
-                    //superHeroImage.attr("src", results[i].images.fixed_height_still.url);
+                    //superHeroImage.attr("src", results[i].images.fixed_width_still.url);
+                    // superHeroImage.attr("src", results[i].images.fixed_height_still.url);
 
                     superHeroImage.attr("data-state", "still");
 
                     superHeroImage.attr("data-animate", results[i].images.original.url);
                     // superHeroImage.attr("data-animate", results[i].images.fixed_width.url);
-                    //superHeroImage.attr("data-animate", results[i].images.fixed_height.url);
+                    // superHeroImage.attr("data-animate", results[i].images.fixed_height.url);
 
-                    //superHeroImage.attr("data-still", results[i].images.fixed_height_still.url);
+                    // superHeroImage.attr("data-still", results[i].images.fixed_height_still.url);
                     // superHeroImage.attr("data-still", results[i].images.fixed_width_still.url);
                     superHeroImage.attr("data-still", results[i].images.original_still.url);
 
@@ -78,11 +78,12 @@ function createButtons() {
     $("#buttonZone").empty();
 // need to add padding to buttons to make them space properly, might needs divs for it
     for (var i = 0; i < superHeros.length; i++) {
+        var buttonDiv = $("<div class='fl padding'>");
         var button = $("<a class='f6 grow no-underline br-pill ph3 pv2 mb2 dib white bg-purple button' href='#0'></a>");
         button.attr("data-hero", superHeros[i]);
         button.text(superHeros[i]);
-        $("#buttonZone").append(button);
-
+        buttonDiv.append(button);
+        $("#buttonZone").append(buttonDiv);
     }
 }
 
