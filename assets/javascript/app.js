@@ -1,7 +1,7 @@
+// TODO make a loading screen that shows up first before the acutal gifs load
 
 var superHeros = ["Deadpool", "Superman", "Spiderman", "Dr. Strange", "Batman", "Thor", "Ironman", "Black Panther", "The Flash", "Beast Boy", "Robin", "Starfire", "Luke Cage", "Daredevil", "The Hulk"];
 
-// TODO make a loading screen that shows up first before the acutal gifs load
 $(document).on("click", ".button", function () {
     $("#gifZone").empty();
     var superHero = $(this).attr("data-hero");
