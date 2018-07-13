@@ -22,25 +22,25 @@ $(document).on("click", ".button", function () {
             // for loop for creating each button
             for (var i = 0; i < results.length; i++) {
                 if (results[i].rating !== "r") {
-                    var superHeroDiv = $("<div class='fl w-20 padding'>");
+                    var superHeroDiv = $("<div class='fl w-third'>");
 
                     var p = $("<p>").text("Rating: " + results[i].rating); 
 
-                    var superHeroImage = $("<img class='gif settings'>");
+                    var superHeroImage = $("<img class='gif padding'>");
 
-                    // superHeroImage.attr("src", results[i].images.original_still.url);
-                    superHeroImage.attr("src", results[i].images.fixed_width_still.url);
+                    superHeroImage.attr("src", results[i].images.original_still.url);
+                    // superHeroImage.attr("src", results[i].images.fixed_width_still.url);
                     //superHeroImage.attr("src", results[i].images.fixed_height_still.url);
 
                     superHeroImage.attr("data-state", "still");
 
-                    //superHeroImage.attr("data-animate", results[i].images.original.url);
-                    superHeroImage.attr("data-animate", results[i].images.fixed_width.url);
+                    superHeroImage.attr("data-animate", results[i].images.original.url);
+                    // superHeroImage.attr("data-animate", results[i].images.fixed_width.url);
                     //superHeroImage.attr("data-animate", results[i].images.fixed_height.url);
 
                     //superHeroImage.attr("data-still", results[i].images.fixed_height_still.url);
-                    superHeroImage.attr("data-still", results[i].images.fixed_width_still.url);
-                    //superHeroImage.attr("data-still", results[i].images.original_still.url);
+                    // superHeroImage.attr("data-still", results[i].images.fixed_width_still.url);
+                    superHeroImage.attr("data-still", results[i].images.original_still.url);
 
                     superHeroDiv.append(superHeroImage, p);
 
