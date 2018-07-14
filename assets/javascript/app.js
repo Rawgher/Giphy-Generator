@@ -16,7 +16,7 @@ $(document).ready(function () {
 
         var offset = Math.floor((Math.random() * 1000) + 1);
 
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + superHero + "&api_key=" + apiKey + "&limit=10&offset=" + offset;
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + superHero + "&api_key=" + apiKey + "&limit=10&offset=" + offset;
 
         $.ajax({
             url: queryURL,
