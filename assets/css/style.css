@@ -38,6 +38,10 @@ h1 {
     color: white;
 }
 
+.hover:hover {
+    cursor: pointer;
+} 
+
 .loadingimg {
     height: 730px;
 }

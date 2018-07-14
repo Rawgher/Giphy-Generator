@@ -32,7 +32,7 @@ $(document).ready(function () {
                 // for loop for creating each gif after button is clicked
                 for (var i = 0; i < results.length; i++) {
                     if (results[i].rating !== "r") {
-                        var superHeroDiv = $("<div>");
+                        var superHeroDiv = $("<div class='hover'>");
 
                         var p = $("<p class='centered'>").text("Rating: " + results[i].rating);
 
