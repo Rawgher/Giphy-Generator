@@ -20,7 +20,6 @@ body {
     justify-content: space-around;
 }
 
-
 .centered {
     text-align: center;
 }
@@ -43,6 +42,7 @@ height: 730px;
 }
 
 @media screen and (max-width: 1024px) {  
+
     .imgSize {
         height: 130px;
         width: 228px;
@@ -104,9 +104,11 @@ height: 730px;
         height: 150px;
         width: 250px;
     }
+
     .mediaGifs {
         width: 100%;
     }
+
     .mediaQ {
         width: 100%;
         float: left;
@@ -114,6 +116,7 @@ height: 730px;
 }
 
 @media screen and (max-width: 531px) {
+
     .padding {
         padding-left: 2px;
         padding-right: 2px;
