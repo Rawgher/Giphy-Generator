@@ -2,8 +2,15 @@
 
 var superHeros = ["Deadpool", "Superman", "Spiderman", "Dr. Strange", "Batman", "Thor", "Ironman", "Black Panther", "The Flash", "Beast Boy", "Robin", "Starfire", "Luke Cage", "Daredevil", "The Hulk"];
 
+$(document).ready(function() { 
+
+    $("#loadingZone").hide();
+
 $(document).on("click", ".button", function () {
     $("#gifZone").empty();
+
+    loadingGif();
+
     var superHero = $(this).attr("data-hero");
 
     var apiKey = "ii1cKp76UP9kphOInoWXkQHcjt0F5BGg";
@@ -38,7 +45,7 @@ $(document).on("click", ".button", function () {
 
                     superHeroDiv.append(superHeroImage, p);
 
-                    $("#gifZone").append(superHeroDiv); 
+                    $("#gifZone").prepend(superHeroDiv); 
  
                 }
 
@@ -49,6 +56,22 @@ $(document).on("click", ".button", function () {
 
 });
 
+function loadingGif() {
+    var loadingDiv = $("<div>");
+    var img = $("<img src='assets/images/loading.gif' class='fl w-100 loadingimg'>")
+    var p = $("<h1 class='centered'>Loading...</h1>");
+    loadingDiv.append(p, img);
+    $("#loadingZone").html(loadingDiv);
+    $("#gifZone").hide();
+    $("#loadingZone").show();
+    setTimeout(replaceIt, 3000);
+}
+
+function replaceIt() {
+    // debugger;
+    $("#loadingZone").hide();
+    $("#gifZone").show();
+}
 
 // this is my function for switching the codes state
 function animateGif() {
@@ -91,3 +114,5 @@ $("#superHeroName").on("click", function (event) {
 });
 
 createButtons();
+
+});
