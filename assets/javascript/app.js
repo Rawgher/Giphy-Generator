@@ -8,12 +8,15 @@ $(document).ready(function () {
     // creates the variables needed for the ajax function
     $(document).on("click", ".button", function () {
 
+        $("#placeHolder").hide();
+
         loadingGif();
 
         var superHero = $(this).attr("data-hero");
 
         var apiKey = "ii1cKp76UP9kphOInoWXkQHcjt0F5BGg";
 
+        // setting offset value to change which gifs are pulled on each click
         var offset = Math.floor((Math.random() * 1000) + 1);
 
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + superHero + "&api_key=" + apiKey + "&limit=10&offset=" + offset;
@@ -28,7 +31,7 @@ $(document).ready(function () {
 
                 // for loop for creating each gif after button is clicked
                 for (var i = 0; i < results.length; i++) {
-                    if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+                    if (results[i].rating !== "r") {
                         var superHeroDiv = $("<div>");
 
                         var p = $("<p class='centered'>").text("Rating: " + results[i].rating);
