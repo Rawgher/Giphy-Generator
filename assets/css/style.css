@@ -1,4 +1,4 @@
-/* TODO - add a comicbook style font */
+/* TODO at a later point - add a comicbook style font */
 
 body {
     background: url("../images/hero-background.jpg") no-repeat center center fixed; 
@@ -38,7 +38,7 @@ h1 {
 }
 
 .loadingimg {
-height: 730px;
+    height: 730px;
 }
 
 @media screen and (max-width: 1024px) {  

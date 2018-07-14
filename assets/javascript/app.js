@@ -1,10 +1,11 @@
-
+// array of superheros to show up on screen initially
 var superHeros = ["Deadpool", "Superman", "Spiderman", "Dr. Strange", "Batman", "Thor", "Ironman", "Black Panther", "The Flash", "Beast Boy", "Robin", "Starfire", "Luke Cage", "Daredevil", "The Hulk"];
 
 $(document).ready(function () {
 
     $("#loadingZone").hide();
 
+    // creates the variables needed for the ajax function
     $(document).on("click", ".button", function () {
 
         loadingGif();
@@ -25,7 +26,7 @@ $(document).ready(function () {
             .then(function (response) {
                 var results = response.data;
 
-                // for loop for creating each button
+                // for loop for creating each gif after button is clicked
                 for (var i = 0; i < results.length; i++) {
                     if (results[i].rating !== "r") {
                         var superHeroDiv = $("<div>");
@@ -55,6 +56,7 @@ $(document).ready(function () {
 
     });
 
+    // this is my loading gif function
     function loadingGif() {
 
         var loadingDiv = $("<div>");
@@ -67,12 +69,13 @@ $(document).ready(function () {
         setTimeout(replaceIt, 3000);
     }
 
+    // this function is used in the timer above for the loading gif
     function replaceIt() {
         $("#loadingZone").hide();
         $("#gifZone").show();
     }
 
-    // this is my function for switching the codes state
+    // this is my function for switching the codes state (changes source from still to animate... vice versa)
     function animateGif() {
         $(".gif").on("click", function () {
 
@@ -103,11 +106,11 @@ $(document).ready(function () {
         }
     }
 
+    // on click function for creating buttons on page
     $("#superHeroName").on("click", function (event) {
         event.preventDefault();
         var supers = $("#superHeroInput").val().trim();
         superHeros.push(supers);
-        // find a way to get the text to disappear in input
 
         createButtons();
     });
