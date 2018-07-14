@@ -6,7 +6,6 @@ $(document).ready(function () {
     $("#loadingZone").hide();
 
     $(document).on("click", ".button", function () {
-        // $("#gifZone").empty();
 
         loadingGif();
 
@@ -57,20 +56,8 @@ $(document).ready(function () {
     });
 
     function loadingGif() {
-        //     var apiKey = "ii1cKp76UP9kphOInoWXkQHcjt0F5BGg";
-        //     var queryURL = "http://api.giphy.com/v1/gifs/search?q=kid+flash&api_key=" + apiKey + "&limit=6";
-
-        // $.ajax({
-        //     url: queryURL,
-        //     method: "GET"
-        // })
-        // // this calls the response from ajax
-        //     .then(function (response) {
-        //         console.log(response.data)
-        //         var loadingResult = response.data[5].images.original.url;;
 
         var loadingDiv = $("<div>");
-        //var img = $("<img src='" + loadingResult +"' class='fl w-100 loadingimg'>")
         var img = $("<img src='assets/images/loading.gif' class='fl w-100 loadingimg'>")
         var p = $("<h1 class='centered'>Loading...</h1>");
         loadingDiv.append(p, img);
@@ -78,11 +65,9 @@ $(document).ready(function () {
         $("#gifZone").hide();
         $("#loadingZone").show();
         setTimeout(replaceIt, 3000);
-        // });
     }
 
     function replaceIt() {
-        // debugger;
         $("#loadingZone").hide();
         $("#gifZone").show();
     }
