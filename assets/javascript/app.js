@@ -1,5 +1,5 @@
 // array of superheros to show up on screen initially
-var superHeros = ["Deadpool", "Superman", "Spiderman", "Dr. Strange", "Batman", "Thor", "Ironman", "Black Panther", "The Flash", "Beast Boy", "Robin", "Starfire", "Luke Cage", "Daredevil", "The Hulk"];
+var superHeros = ["Deadpool", "Superman", "Spiderman", "Dr. Strange", "Batman", "Thor", "Ironman", "Black Panther", "The Flash", "Beast Boy", "Robin", "Jessica Jones", "Luke Cage", "Daredevil", "The Hulk"];
 
 $(document).ready(function () {
 
